@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>Kang Parkir</title>
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+    <link rel="stylesheet" href="css/bulma.css">
+  	<link rel="stylesheet" href="framework7/css/framework7.ios.min.css">
+  	<link rel="stylesheet" href="framework7/css/framework7.ios.colors.min.css">
+  	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
+  	<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+
+<div id="intro">
+<div class="fixedPos">
+	<section class="hero is-large">
+  
+  <div class="hero-body">
+    <div class="container has-text-centered">
+     
+        <img class="animated infinite pulse" src="img/icon.png" alt="Logo">
+    </div>
+  </div>
+</section>
+</div>
+	<div class="forBlank"></div>
+
+</div> 
+
+
+
+<div id="app" class="removeIt animated">
+	<f7-statusbar></f7-statusbar>
+
+	<!-- Right Panel -->
+	<f7-panel right cover layout="dark">
+		<f7-view id="right-panel-view" navbar-through :dynamic-navbar="true">
+			<f7-navbar title="Menu" sliding></f7-navbar>
+			<f7-pages>
+				<f7-page>
+					<f7-block-title>Menu Utama</f7-block-title>
+				<f7-list>                          
+              		<f7-list-item link="/inputTipe/" title="Tipe Kendaraan" link-view="#main-view" link-close-panel></f7-list-item>
+            	</f7-list>
+            	<f7-list>                          
+              		<f7-list-item link="/about/" title="Tentang" link-view="#main-view" link-close-panel></f7-list-item>
+            	</f7-list>
+            	<f7-list>                          
+              		<f7-list-item @click="openModalQuit" title="Keluar" link-close-panel></f7-list-item>
+            	</f7-list>
+
+				</f7-page>
+			</f7-pages>
+		</f7-view>
+	</f7-panel>
+
+	<!-- Main views -->
+	<f7-views>
+		<f7-view id="main-view" navbar-through :dynamic-navbar="true" main>
+			<f7-navbar>
+				<f7-nav-center sliding>
+					Kang Parkir
+				</f7-nav-center>
+				<f7-nav-right>
+					<f7-link icon="icon-bars" open-panel="right"></f7-link>
+				</f7-nav-right>
+			</f7-navbar>
+			<!-- pages -->
+			<f7-pages>
+				<f7-page>
+
+				<br />
+				<f7-card>
+					<f7-card-content>
+						<img class="mainLogo" src="img/icon.png">
+					</f7-card-content>
+				</f7-card>
+            
+        <f7-card>
+        	<f7-card-content>
+            <f7-button href="/virtual/">Kendaraan Masuk / Keluar</f7-button>
+        	</f7-card-content>
+        </f7-card>
+        
+        <f7-card>
+          <f7-card-content>
+            <f7-button href="/history/">Catatan</f7-button>
+          </f7-card-content>
+        </f7-card>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="content has-text-centered">
+            <p>
+              <strong>Kang Parkir</strong> oleh <a href="http://github.com/abdulMuhit" class="external" target="_blank">Abdul Muhit</a>.
+            </p>
+            <p>
+              <a class="icon external" href="https://github.com/abdulMuhit" target="_blank">
+                <i class="fa fa-github"></i>
+              </a>
+            </p>      
+            <p>fantaseen 2017</p>
+          </div>
+        </div>
+      </footer>
+
+
+         <!-- Actions -->
+      <f7-actions id="confirmExitActions">
+        <f7-actions-group>
+          <f7-actions-label>Keluar aplikasi?</f7-actions-label>
+          <f7-actions-button color="red" @click="quitApp">Ya</f7-actions-button>
+        </f7-actions-group>
+        <f7-actions-group>
+          <f7-actions-button bold>Batal</f7-actions-button>
+        </f7-actions-group>
+      </f7-actions>
+
+
+				</f7-page>
+			</f7-pages>
+
+		</f7-view>
+	</f7-views>
+
+	
+</div> <!-- end el app-->
+
+
+
+<!-- page-about template -->
+<template id="page-about">
+	<f7-page>
+		<f7-navbar title="Tentang" back-link="Kembali" sliding></f7-navbar>  
+
+		<f7-block>
+		<f7-card>
+          <f7-card-content>
+            <img class="mainLogo" src="img/icon.png">
+          </f7-card-content>
+        </f7-card>
+        
+			<f7-card>
+			
+			<div class="content">
+			<p class="has-text-centered">
+			Info:
+			</p>
+			
+			 <ol>
+			 	<li>Untuk pilihan pembayaran perjam, kendaraan baru mulai kena tagihan di akhir tiap jam sejak kendaraan itu masuk, sebelum satu jam masih tidak dihitung.</li>
+			 	<li>Untuk pilihan pembayaran perhari, kendaraan mulai kena tagihan dari awal kendaraan itu masuk.</li>
+			 </ol>
+			</div>
+			
+			 <hr />
+
+			 <div class="content has-text-centered">
+			 			 
+   		<p>Gambar parkir diperoleh dari <a class="external" href="http://www.freepik.com" title="Freepik" target="_blank">Freepik</a> from <a class="external" href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a> dengan lisensi <a class="external" href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>   
+		
+<!--        <p>Aplikasi ini menggunakan:</p>
+       <p>vuejs, framework7, sheetjs, momentjs, dan tentu saja Tizen Mobile Web Device API.</p> -->
+       <hr />
+	      <p>
+	        <strong>Kang Parkir</strong> oleh <a href="http://github.com/abdulMuhit" class="external" target="_blank">Abdul Muhit</a>.
+	      </p>
+	      <p>
+	        <a class="icon external" href="https://github.com/abdulMuhit" target="_blank">
+	          <i class="fa fa-github"></i>
+	        </a>
+	      </p>
+	      <p>fantaseen 2017</p>
+	    </div>
+
+      </f7-card>
+		
+		</f7-block>
+
+	</f7-page>
+
+</template>
+
+<template id="inputTipe">
+	<f7-page>
+		<f7-navbar title="Tipe Kendaraan" back-link="Kembali" sliding></f7-navbar>
+
+		 <f7-block-title>List</f7-block-title>
+		 
+		 <f7-list media-list>
+		  <f7-list-item
+		    v-for="item in kategoriList" swipeout>
+
+      		<div slot="media-start"><i class='fa fa-arrow-circle-o-left'></i></div>
+      		<span slot="after">harga: {{item.price.toLocaleString("id")}}</span>
+      		<div slot="inner-start">{{item.category}}</div>
+      		<div slot="inner">tipe harga: {{item.typeText}}</div>
+      
+		    <f7-swipeout-actions>
+          <f7-swipeout-button close @click="deleteClicked(item.id)">Hapus
+          </f7-swipeout-button>
+        </f7-swipeout-actions>
+		    
+		  </f7-list-item>
+		</f7-list>
+
+    <f7-fab color="gray" @click="openPopupInputType">
+		  <f7-link>
+		      <f7-icon fa="plus"></f7-icon>
+		  </f7-link>
+		</f7-fab>
+
+      <!-- Popup Input type-->
+    
+    <div class="popup" id="popupInputType">
+      <f7-view navbar-fixed>
+        <f7-pages>
+    	   <nav class="navbar">
+    				<div class="nav-brand">
+    					<div class="centerText"><span style="font-weight: bold;
+          	    position: relative;
+          	    top: 1em;">Kategori</span>
+
+          		<f7-link @click="closePopupCategory" style="position: absolute; right: 15px; margin: -1em auto;">Tutup</f7-link>		
+          		
+          		</div>
+          	</div>
+    		</nav>
+          <f7-page>           
+            <f7-block>
+              <f7-list form id="myform">
+                <f7-list-item>
+                  <f7-label>Tipe</f7-label>
+                  <f7-input id="name" name="name" type="text" placeholder="mobil/motor/truck dsb"></f7-input>
+                </f7-list-item>
+                <f7-list-item>
+                  <f7-label>Harga</f7-label>
+                  <f7-input id="harga" name="harga" type="number" placeholder="Harga"></f7-input>
+                </f7-list-item>
+              </f7-list>
+
+              <f7-block-title>Kategory Harga</f7-block-title>
+              <f7-list>
+                <f7-list-item v-for="n in radioPick" radio name="kategorytype" :checked="n.no === 1" :value="n.name" :title="n.name" @click="radioPickFunction(n.no)">
+                </f7-list-item>
+              </f7-list>
+
+              <p><f7-button round @click="saveKategori">Simpan</f7-button></p>
+            </f7-block>
+
+          </f7-page>
+        </f7-pages>
+      </f7-view>
+      </div>
+    
+
+	</f7-page>
+</template>
+
+
+<template id="virtual">
+    <f7-page>
+      <f7-navbar back-link="Kembali" title="Kendaraan" sliding>
+        
+      </f7-navbar>      
+<br>
+<br>
+   <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
+    <div class="searchbar-input">
+      <input type="search" placeholder="Cari no Polisi Kendaraan"><a href="#" class="searchbar-clear"></a>
+    </div><a href="#" class="searchbar-cancel">Batal</a>
+  </form>
+
+  <!-- <div class="searchbar-overlay"></div> -->
+
+  <f7-block>Jumlah yang parkir: {{kendaraanList.length}}</f7-block>
+
+    <div class="content-block searchbar-not-found">
+      <div class="content-block-inner card">Tidak ditemukan</div>
+    </div>
+ 
+    <div class="list-block list-block-search searchbar-found">
+
+      <ul v-for="item in kendaraanList">
+        <li class="item-content" @click="itemClicked(item)">
+          <div class="item-media">
+          	<img src="img/parking.png">
+          </div>
+          <div class="item-inner">
+            <div class="item-title">{{item.noPol}}</div>
+            <div class="item-after">{{item.category}}</div>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+
+
+  <f7-fab color="gray" @click="openPopupInputKendaraan">
+  <f7-link>
+      <f7-icon fa="plus"></f7-icon>
+  </f7-link>
+  </f7-fab>
+  
+    <!-- Popup Input kendaraan-->    
+    <!-- <f7-popup id="popupInputKendaraan"> -->
+    <div class="popup" id="popupInputKendaraan">
+
+        <f7-pages>
+            <nav class="navbar">
+				<div class="nav-brand">
+					<div class="centerText"><span style="font-weight: bold;
+	    position: relative;
+	    top: 1em;">Kendaraan Masuk</span>
+
+
+
+		<!-- <f7-link  close-popup style="position: absolute; right: 15px; margin: -1em auto;">Tutup</f7-link> -->
+		<f7-link  @click="closePopupInputKendaraan" style="position: absolute; right: 15px; margin: -1em auto;">Tutup</f7-link>
+		
+			</div>
+			</div>
+		</nav>
+
+          <f7-page>
+            <f7-block>
+            <br />
+              
+              <f7-list form id="myformMasuk">
+                <f7-list-item>
+                  <f7-label>No polisi</f7-label>
+                  <f7-input id="noPol" v-model="noPol" name="noPol" type="text" placeholder="contoh: D1231BA"></f7-input>
+                </f7-list-item>
+                 
+                <f7-list-item>
+                  <f7-label>Tanggal Masuk</f7-label>
+                  <p>{{tanggalMasuk}}</p>
+                </f7-list-item>
+                
+                <f7-list-item>
+                  <f7-label>Jam Masuk</f7-label>         
+                  <p>{{jamMasuk}}</p>
+                </f7-list-item>
+              </f7-list>
+
+              <f7-block-title>Tipe Kendaraan</f7-block-title>
+              <f7-list>
+                <f7-list-item @click="typeKendaraanPick1(n)" v-for="n in typeKendaraanPick" radio name="kategoriKendaraan" :checked="n.category === 'mobil'" :value="n.type" :title="n.category"></f7-list-item>
+              </f7-list>
+
+              <p><f7-button round @click="saveKendaraanMasuk">Simpan</f7-button></p>
+
+            </f7-block>
+          </f7-page>
+        </f7-pages>
+
+    </div>
+    <!-- </f7-popup> -->
+    <!-- Popup Input kendaraan end-->
+
+    <!-- Popup Detail Kendaraan-->
+    <!-- <f7-popup id="popupDetailKendaraan"> -->
+    <div class="popup" id="popupDetailKendaraan">
+
+        <f7-pages>
+            <nav class="navbar">
+				<div class="nav-brand">
+					<div class="centerText"><span style="font-weight: bold;
+	    position: relative;
+	    top: 1em;">Kendaraan Keluar</span>
+
+		<!-- <f7-link close-popup style="position: absolute; right: 15px; margin: -1em auto;">Tutup</f7-link> -->
+		<f7-link @click="closeDetailKendaraan" style="position: absolute; right: 15px; margin: -1em auto;">Tutup</f7-link>
+			</div>
+			</div>
+		</nav>
+
+          <f7-page>            
+                        
+<br>
+  <div class="list-block">
+	<ul>
+        <li class="item-content">          
+          <div class="item-inner">
+            <div class="item-title">No Polisi: {{selectedKendaraan.noPol}}</div>
+            <div class="item-after">kategori: {{selectedKendaraan.category}}</div>
+          </div>
+        </li>
+
+      </ul>
+        <f7-block-title>Masuk</f7-block-title>
+      <ul>
+         <li class="item-content">          
+          <div class="item-inner">
+            <div class="item-title">{{selectedKendaraan.waktuMasuk}}</div>            
+          </div>
+        </li>
+        </ul>
+      <f7-block-title>Keluar</f7-block-title>
+      <ul>
+         <li class="item-content">          
+          <div class="item-inner">
+            <div class="item-title">{{jamMasuk}}</div>
+          </div>
+        </li>
+        </ul>
+       <br />
+      <ul>
+        <li class="item-content">          
+          <div class="item-inner">
+            <div class="item-title">Durasi: {{durasi}}</div>
+            <div class="item-after">Harga: Rp {{parseInt(selectedKendaraan.harga).toLocaleString("id")}}</div>
+          </div>
+        </li>
+      </ul>
+      
+      <ul>
+        <li class="item-content">          
+          <div class="item-inner">
+            <div class="item-title">Tipe Harga: {{txtHarga}}</div>
+            <div class="item-after">Total: Rp {{parseInt(totalHarga).toLocaleString("id")}}</div>
+          </div>
+        </li>
+      </ul>
+      
+      <ul>
+        <li class="item-content">          
+          <div class="item-inner">
+            <div class="item-title">Penanda:</div>
+            <div class="item-after"><f7-input id="notess" name="notes" type="text" placeholder="optional"></f7-input></div>
+          </div>
+        </li>
+      </ul>
+
+      <p><f7-button round @click="saveKendaraanKeluar">Simpan</f7-button></p>
+
+</div> 
+     
+          </f7-page>
+        </f7-pages>
+     
+    </div>
+    <!-- </f7-popup> -->
+    <!-- Popup Detail Kendaraan end-->
+
+    </f7-page>
+  </template>
+  
+  
+      <template id="history">
+    <f7-page>
+      <f7-navbar back-link="Kembali" title="Catatan" sliding></f7-navbar>
+      
+   <f7-block-title>Terdapat total {{databaseParkir.length || 0}} catatan</f7-block-title>
+    
+  	<f7-card>
+  	
+  <br /> 
+  <div v-if="isi">
+  
+  	<f7-buttons>
+  		<f7-button round @click="triggerBackup">Simpan ke File</f7-button>
+  		<f7-button round @click="dropTableModal" color="red">Hapus Catatan</f7-button>  
+	</f7-buttons>
+	<br />
+    
+    <div class="searchbar">
+    	<div class="searchbar-input">
+    	<input id="mySearch" v-model="searchMe" type="search" placeholder="Cari kendaraan" @focus="searchOnFocus(this)" />
+    	</div>
+    	<span id="myBatal" @click="myBatalClicked" class="searchbar-Mycancel">Batal</span>
+    </div>
+    
+    <br />
+    <div class="data-table card myTable">
+    <table id="tableau1" border="1">
+      <tr>
+        <td>No Polisi</td>
+        <td>Kategori</td>
+        <td>Harga</td>
+        <td>Tipe Harga</td>
+        <td>Masuk</td>
+        <td>Keluar</td>
+        <td>Total</td>
+        <td>catatan</td>
+      </tr>
+      <tr v-for="item in searchList">
+        <td>{{item.noPol}}</td>
+        <td>{{item.category}}</td>
+        <td>{{item.harga}}</td>
+        <td>{{item.typeHarga}}</td>
+        <td>{{item.waktuMasuk}}</td>
+        <td>{{item.waktuKeluar}}</td>
+        <td>{{item.totalHarga}}</td>
+        <td>{{item.note}}</td>
+      </tr>
+    </table> 
+    </div>
+    
+    </div>
+        
+  </f7-card>  
+        
+<f7-actions id="confirmDropActions">  
+  <f7-actions-group>
+    <f7-actions-label>Yakin hapus?</f7-actions-label>
+    <f7-actions-button color="red" @click="dropTable">Ya</f7-actions-button>
+  </f7-actions-group>
+  <f7-actions-group>
+    <f7-actions-button bold>Batal</f7-actions-button>
+  </f7-actions-group>
+</f7-actions>
+
+    </f7-page>
+  </template>
+  
+  
+
+	<script type="text/javascript" src="js/moment.js"></script>
+  	<script type="text/javascript" src="js/moment-with-locales.js"></script>
+  	<script type="text/javascript" src="js/polyfill.number.toLocaleString.js"></script>
+	<script type="text/javascript" src="js/xlsx.full.min.js"></script>
+	<script src="framework7/js/framework7.min.js"></script>
+	<script src="js/vue.min.js"></script>
+	<script src="js/framework7-vue.min.js"></script>	
+	<script src="js/promise.js"></script>
+	<script src="js/vuex.js"></script>  	  	
+	<script src="js/app.js"></script>
+</body>
+</html>
