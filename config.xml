@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://com.fantaseen/KangParkir" version="1.0.1" viewmodes="maximized">
+    <tizen:application id="hmAptON8fe.KangParkir" package="hmAptON8fe" required_version="2.4"/>
+    <author href="http://github.com/abdulMuhit" email="abdul.muhit.t@gmail.com">Abdul Muhit</author>
+    <content src="index.html"/>
+    <description>Aplikasi sistem informasi administrasi parkir kendaraan.</description>
+    <feature name="http://tizen.org/feature/screen.size.all"/>
+    <icon src="icon.png"/>
+    <name>Kang Parkir</name>
+    <tizen:privilege name="http://tizen.org/privilege/filesystem.read"/>
+    <tizen:privilege name="http://tizen.org/privilege/filesystem.write"/>
+    <tizen:privilege name="http://tizen.org/privilege/unlimitedstorage"/>
+    <tizen:profile name="mobile"/>
+</widget>

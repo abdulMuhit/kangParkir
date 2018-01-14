@@ -1,0 +1,111 @@
+.footer {
+    background-color: whitesmoke;
+    padding: 0rem 0.5rem 0rem;
+}
+
+.card {
+	border-radius: 20px;
+}
+.card-content {
+    padding: 0rem;
+}
+
+.centerText {
+  text-align: center;      
+}
+
+.mainLogo {
+	position: relative;
+	left: 35%;
+	margin-top: 15px;
+	width: 30%;
+	height: 30%;
+}
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;	    
+}
+
+.flex-item {
+    width: 33%;
+    margin: 1em auto;
+}
+
+.myTable {
+	max-height: 280px;
+}
+
+
+span.deleteicon {
+    position: relative;
+}
+span.deleteicon span {
+    position: absolute;
+    display: block;
+    top: 5px;
+    right: 0px;
+    width: 16px;
+    height: 16px;             
+    cursor: pointer;
+}
+span.deleteicon input {
+    padding-right: 16px;
+}
+
+
+.fixedPos {
+	position:fixed;
+    top: 50%;
+    left: 50%;
+    width:30em;
+    height:18em;
+    margin-top: -9em; /* set to a negative number 1/2 of your height */
+    margin-left: -15em; /* set to a negative number 1/2 of your width */        
+}
+
+.forBlank {
+	height: 80em;	
+}
+
+.intro {
+    overflow: hidden;
+}
+
+.removeIt {
+    display: none;
+}
+
+.searchbar-Mycancel {
+	cursor: pointer;
+	text-align: center;
+        
+    color: #4141fa;
+    display: none;  
+     
+    margin-right: -39px;
+     -webkit-transition: all 2s; /* Safari */
+    transition: all 2s;
+}
+
+.searchbar-Mycancel.isActive{
+	display: block;
+	margin-right: 1em;
+	
+}
+
+#mySearch{
+	width: 100%;
+	-webkit-transition: width 2s; /* Safari */
+    transition: width 2s;
+}
+
+/* #mySearch:focus {
+	width: 80%;
+} */
+
+#mySearch.isActive {
+	width: 90%;
+}
+
