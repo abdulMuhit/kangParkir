@@ -15,4 +15,7 @@ There also some sample to use websql, export data table to excel and save file t
 
 Hope it can also be usefull for you guys.
 
+If you have tizen device, you can try the app by downloaded the app in the Tizen Store, just search for "Kang Parkir".
+If you just wanna see the app preview you can go to this link http://www.tizenstore.com/main/getDetail.as?Id=hmAptON8fe .
+
 Thanks.
